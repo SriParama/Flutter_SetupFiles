@@ -1,0 +1,10 @@
+flutter upgrade --force 
+flutter pub upgrade --major-versions
+minSdkVersion 23
+dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1' //Add this line for multidex
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation platform('com.google.firebase:firebase-bom:32.7.1')
+    implementation 'com.google.firebase:firebase-analytics'
+
+}

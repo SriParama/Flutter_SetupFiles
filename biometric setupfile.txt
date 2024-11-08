@@ -1,0 +1,2775 @@
+infoplist
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Myapp</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>myapp</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<key>NSFaceIDUsageDescription</key>
+<string>Why is my app authenticating using face id?</string>
+	<true/>
+</dict>
+</plist>
+
+
+pubspec.yaml
+
+name: novo
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.2.3+10
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  http: ^1.1.0
+  google_fonts: ^6.2.1
+  crypto: ^3.0.3
+  shared_preferences: ^2.2.1
+
+  timeline_tile: ^2.0.0
+  intl: ^0.19.0
+  flutter_launcher_icons: ^0.14.1
+  url_launcher: ^6.1.14
+  provider: ^6.0.5
+  page_transition: ^2.1.0
+  dropdown_button2: ^2.3.9
+  connectivity: ^3.0.6
+  flutter_svg: ^2.0.9
+  change_app_package_name: ^1.1.0
+  upgrader: ^11.3.0
+  
+  package_info: ^2.0.2
+  animated_bottom_navigation_bar: ^1.3.0
+  curved_navigation_bar: ^1.0.3
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  firebase_storage: ^12.3.3
+  cloud_firestore: ^5.4.4
+  version: ^3.0.2
+  app_settings: ^5.1.1
+  firebase_messaging: ^15.1.3
+  flutter_local_notifications: ^17.2.3
+  local_auth: ^2.3.0  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+flutter_icons:
+  image_path: "assets/Novo_app_Logo.png"  # Path to your source image
+  android: true
+  ios: true
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+  #   - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example: 
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter.ttf
+    - family: Kiro
+      fonts:
+        - asset: assets/fonts/Kiro W01 Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
+
+
+
+build gradle /app level:
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+   signingConfigs {
+       release {
+       storeFile file('upload-keystore.jks')
+       storePassword 'novo@1234'
+       keyAlias 'upload'
+       keyPassword 'novo@1234'
+       }
+   }
+    namespace "com.novo.novoapp"
+    compileSdkVersion 34
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.novo.novoapp"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1' 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation platform('com.google.firebase:firebase-bom:32.7.1')
+    implementation 'com.google.firebase:firebase-analytics'
+
+}
+
+andriod mainifast:
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+ <uses-permission android:name="android.permission.BIOMETRIC" /> 
+<!-- Provide required visibility configuration for API level 30 and above -->
+<queries>
+  <!-- If your app checks for SMS support -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="http" />
+  </intent>
+  <!-- If your app checks for call support -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="https" />
+  </intent>
+</queries>
+    <application
+        android:label="novo"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
+        >
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="novo"/>
+            </intent-filter>
+        </activity>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+</manifest>
+
+mainactivity.kt
+
+package com.novo.novoapp
+
+import io.flutter.embedding.android.FlutterFragmentActivity
+
+class MainActivity: FlutterFragmentActivity() {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+flash screen:
+
+
+
+// ignore_for_file: file_names, use_build_context_synchronously
+
+import 'dart:async';
+
+import 'package:connectivity/connectivity.dart';
+import 'package:flutter/material.dart';
+import 'package:novo/Provider/provider.dart';
+import 'package:novo/cookies/cookies.dart';
+import 'package:novo/screens/loginwithpass.dart';
+import 'package:novo/widgets/NOVO%20Widgets/snackbar.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
+import '../Roating/route.dart' as route;
+
+class FlashSCreenPage extends StatefulWidget {
+  const FlashSCreenPage({super.key});
+  @override
+  State<FlashSCreenPage> createState() => _FlashSCreenPageState();
+}
+
+class _FlashSCreenPageState extends State<FlashSCreenPage> {
+  final Connectivity _connectivity = Connectivity();
+
+  @override
+  void initState() {
+    super.initState();
+    // animation();
+    cookieverify();
+  }
+
+  animation() async {
+    await Future.delayed(const Duration(milliseconds: 3500), () {
+      Navigator.pushReplacement(
+        context,
+        PageTransition(
+          child: const LoginPage(),
+          type: PageTransitionType.fade,
+        ),
+      );
+    });
+  }
+
+  Future<void> cookieverify() async {
+    await Future.delayed(const Duration(milliseconds: 3500), () async {
+      await Provider.of<NavigationProvider>(context, listen: false).getCookie();
+      bool cookieValid = await verifyCookies(context);
+      if (cookieValid) {
+        Navigator.pushNamed(context, route.novoPage, arguments: 1);
+      } else {
+        Navigator.pushReplacement(
+          context,
+          PageTransition(
+            child: const LoginPage(),
+            type: PageTransitionType.fade,
+          ),
+        );
+
+        // _connectivity.onConnectivityChanged
+        //     .listen((ConnectivityResult result) async {
+        //   if (!(result == ConnectivityResult.mobile ||
+        //       result == ConnectivityResult.wifi)) {
+        //     WidgetsBinding.instance.addPostFrameCallback((_) {
+        //       showSnackbar(context, "No internet", Colors.red);
+        //     });
+        //   }
+        // });
+        // isLoading = false;
+        // setState(() {});
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Image.asset(
+              "assets/Novo_Animation .gif",
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+loginscreen:
+
+
+// ignore_for_file: unused_field, prefer_final_fields, no_leading_underscores_for_local_identifiers, unused_local_variable, use_build_context_synchronously
+
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'package:connectivity/connectivity.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:novo/API/APICall.dart';
+import 'package:novo/Provider/provider.dart';
+import 'package:novo/cookies/cookies.dart';
+import 'package:novo/services/biometricuserAuth.dart';
+import 'package:novo/utils/Themes/theme.dart';
+import 'package:novo/utils/colors.dart';
+import 'package:novo/widgets/LogIn%20Widgets/getotpForgetPassword.dart';
+import 'package:package_info/package_info.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../Roating/route.dart' as route;
+import 'package:http/http.dart' as http;
+import 'package:version/version.dart';
+import '../widgets/NOVO Widgets/netWorkConnectionALertBox.dart';
+import '../widgets/NOVO Widgets/snackbar.dart';
+import '../widgets/NOVO Widgets/textFieldWidget.dart';
+import '../widgets/NOVO Widgets/textbutton.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
+  ConnectivityResult _connectionStatus = ConnectivityResult.none;
+  final Connectivity _connectivity = Connectivity();
+  bool isLoading = true;
+  DateTime goBackApp = DateTime.now();
+  var formKey = GlobalKey<FormState>();
+  bool recheck = false;
+  bool isLoaded = false;
+  bool buttonIsLoading = false;
+  TextEditingController userIdController = TextEditingController();
+  //karthikraja=FT032287
+  //Lakshmanan Sir=FT000069
+  //sri=FT034528
+  //thangareen=FT034568
+  TextEditingController passwordController = TextEditingController();
+  //karthikraja=Aaa@111
+  //Lakshmanan Sir=Demo@1111
+  //sri=Wqsb-852
+  //thangareena=smile@1A
+  TextEditingController pancardController = TextEditingController();
+  //karthikraja=EXPPK4076L
+  //Lakshmanan Sir=AGMPA8575C
+  //sri=DSGPA0038D
+  //thangareena=NISPS8983P
+
+  String? curVersion;
+  String? forceUpdate;
+  Version? installedVersion;
+  Version? latestVersion;
+  String? appPackageName;
+  String? deviceName;
+  late final LocalAuthentication auth;
+  bool? isBioMetricAuth;
+  AppLifecycleState? appState;
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    appState = state;
+    if (state == AppLifecycleState.resumed) {
+      checkBiometricAvailability();
+    }
+  }
+
+  Future<void> checkBiometricAvailability() async {
+    try {
+      BiometricAuthentication.availableBiometrics =
+          await auth.getAvailableBiometrics();
+
+      if (BiometricAuthentication.availableBiometrics.isEmpty) {
+        await BiometricAuthentication.setBiometicVerify("N");
+        isBioMetricAuth = false;
+        setState(() {});
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      versionCheck(context);
+      cookieverify();
+      getBioMetricVerify();
+    });
+    WidgetsBinding.instance.addObserver(this);
+    auth = LocalAuthentication();
+    auth.isDeviceSupported().then((bool isSupported) {});
+  }
+
+  Future<void> getBioMetricVerify() async {
+    String? isEnableBio = await BiometricAuthentication.getBiometicVerify();
+
+    if (isEnableBio == "Y") {
+      bioMeticAuthEnable();
+    }
+  }
+
+  bioMeticAuthEnable() async {
+    await BiometricAuthentication.authenticate(auth, context);
+    setState(() {});
+
+    if (BiometricAuthentication.isAuthenticated) {
+      isBioMetricAuth = true;
+      var pref = await SharedPreferences.getInstance();
+      pancardController.text = pref.getString("tOtp") ?? "";
+      await BiometricAuthentication.setBiometicVerify("Y");
+    } else {
+      isBioMetricAuth = false;
+    }
+  }
+
+  Future<void> versionCheck(BuildContext context) async {
+    if (await isInternetConnected()) {
+      getVersionInAPI();
+      getDeviceIP();
+      deviceName = getDeviceInformation();
+    } else {
+      noInternetConnectAlertDialog(context, () => versionCheck(context));
+    }
+  }
+
+  String? platform;
+  Future<void> getVersionInAPI() async {
+    String apiUrl = "https://novoapi.flattrade.in/getCurVersion";
+
+    platform = Platform.isAndroid
+        ? 'Android'
+        : Platform.isIOS
+            ? 'iOS'
+            : 'Unknown';
+    Map<String, String> headers = {
+      'User-Agent': 'YourApp/1.0 ($platform)', // Custom User-Agent header
+    };
+
+    try {
+      var response = await http.get(Uri.parse(apiUrl), headers: headers);
+      if (response.statusCode == 200) {
+        Map json = jsonDecode(response.body);
+
+        if (json["status"] == "S") {
+          curVersion = json['version'];
+          forceUpdate = json['forceUpdate'];
+          PackageInfo packageInfo = await PackageInfo.fromPlatform();
+          appPackageName = packageInfo.packageName;
+
+          installedVersion = Version.parse(packageInfo.version);
+          latestVersion = Version.parse(curVersion!);
+
+          updateAlertDailog();
+        } else {
+          showSnackbar(
+              context, json["errMsg"] ?? somethingError, primaryRedColor);
+        }
+      } else {
+        showSnackbar(context, somethingError, primaryRedColor);
+      }
+    } catch (e) {
+      showSnackbar(context, somethingError, primaryRedColor);
+    }
+  }
+
+  String? deviceIP;
+
+  void getDeviceIP() async {
+    try {
+      for (var interface in await NetworkInterface.list()) {
+        for (var addr in interface.addresses) {
+          if (addr.type == InternetAddressType.IPv4) {
+            setState(() {
+              deviceIP = addr.address;
+            });
+          } else if (addr.type == InternetAddressType.IPv6) {
+            setState(() {
+              deviceIP = addr.address;
+            });
+          }
+        }
+      }
+    } catch (error) {
+      ////////print('Error getting IP address: $error');
+    }
+  }
+
+  String getDeviceInformation() {
+    if (Platform.isAndroid) {
+      return '${androidDeviceManufacturer()}-${androidDeviceModel()}';
+    } else if (Platform.isIOS) {
+      return '${iosDeviceLocalizedModel()}-${iosDeviceModel()}';
+    } else {
+      return 'Unknown Device';
+    }
+  }
+
+  String androidDeviceModel() {
+    return androidProperty('ro.product.model', 'Unknown');
+  }
+
+  String androidDeviceManufacturer() {
+    return androidProperty('ro.product.manufacturer', 'Unknown');
+  }
+
+  String androidDeviceProduct() {
+    return androidProperty('ro.product.name', 'Unknown');
+  }
+
+  String androidProperty(String property, String defaultValue) {
+    try {
+      final result = Process.runSync('getprop', [property]);
+      if (result.stdout != null) {
+        return result.stdout.toString().trim();
+      }
+    } catch (e) {
+      ////////print('Error getting Android property $property: $e');
+    }
+    return defaultValue;
+  }
+
+  String iosDeviceModel() {
+    return iosProperty('hw.machine', 'Unknown');
+  }
+
+  String iosDeviceLocalizedModel() {
+    return iosProperty('hw.model', 'Unknown');
+  }
+
+  String iosDeviceSystemName() {
+    return 'iOS';
+  }
+
+  String iosDeviceSystemVersion() {
+    return iosProperty('os.version', 'Unknown');
+  }
+
+  String iosProperty(String property, String defaultValue) {
+    try {
+      final result = Process.runSync('sysctl', ['-n', property]);
+      if (result.stdout != null) {
+        return result.stdout.toString().trim();
+      }
+    } catch (e) {
+      ////////print('Error getting iOS property $property: $e');
+    }
+    return defaultValue;
+  }
+
+  Uri? url;
+  updateAlertDailog() {
+    if (installedVersion! < latestVersion) {
+      if (Platform.isAndroid) {
+        url = Uri.parse(
+            'https://play.google.com/store/apps/details?id=$appPackageName');
+      } else if (Platform.isIOS) {
+        url = Uri.parse(
+            'https://apps.apple.com/in/app/novo-ipo-sgb-mf-g-sec/id6473023986');
+      } else {
+        // return 'Unknown Device';
+        url = Uri.parse('');
+      }
+
+      Future<void> _launchUrl() async {
+        if (url == null || !await launchUrl(url!)) {
+          // throw Exception('Could not launch $url');
+        }
+      }
+
+      // Show an update dialog
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return PopScope(
+            canPop: false,
+            onPopInvoked: (didPop) => false,
+            child: AlertDialog(
+              title: const Text('Update Available'),
+              content: Text(
+                  'A new version $latestVersion is available. Update for better experience!'),
+              actions: [
+                Visibility(
+                  visible: forceUpdate == 'N',
+                  child: MaterialButton(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    color: appPrimeColor,
+                    onPressed: () => Navigator.pop(context),
+                    child: buttonIsLoading
+                        ? const CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : const Text(
+                            "LATER",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w700,
+                              height: 1.0,
+                            ),
+                          ),
+                  ),
+                ),
+                MaterialButton(
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  color: appPrimeColor,
+                  onPressed: _launchUrl,
+                  child: buttonIsLoading
+                      ? const CircularProgressIndicator(
+                          color: Colors.white,
+                        )
+                      : const Text(
+                          "UPDATE",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w700,
+                            height: 1.0,
+                          ),
+                        ),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    }
+  }
+
+  Future<void> cookieverify() async {
+    await Provider.of<NavigationProvider>(context, listen: false).getCookie();
+    bool cookieValid = await verifyCookies(context);
+    if (cookieValid) {
+      Navigator.pushNamed(context, route.novoPage, arguments: 1);
+    } else {
+      StreamSubscription<ConnectivityResult> _connectivitySubscription =
+          _connectivity.onConnectivityChanged
+              .listen((ConnectivityResult result) async {
+        if (!(result == ConnectivityResult.mobile ||
+            result == ConnectivityResult.wifi)) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            showSnackbar(context, "No internet", Colors.red);
+          });
+        }
+      });
+      isLoading = false;
+      setState(() {});
+    }
+  }
+
+  postLogInDetailsInAPI(curentPagecontext) async {
+    try {
+      if (await isInternetConnected()) {
+        Map? json = await postLogInDetails(
+          context: curentPagecontext,
+          clientId: userIdController.text.toUpperCase(),
+          password: passwordController.text,
+          panCardNo: pancardController.text.toUpperCase(),
+          deviceName: deviceName!,
+          deviceIP: deviceIP!,
+        );
+
+        if (json != null) {
+          var pref = await SharedPreferences.getInstance();
+          pref.setString("tOtp", pancardController.text.toUpperCase());
+          Navigator.pushNamed(context, route.novoPage, arguments: 1);
+          return;
+        }
+        setState(() {
+          buttonIsLoading = false;
+        });
+      } else {
+        noInternetConnectAlertDialog(
+            curentPagecontext, () => postLogInDetailsInAPI(curentPagecontext));
+      }
+    } catch (e) {
+      ////////print(e);
+    }
+  }
+
+  onLogin() {
+    if (buttonIsLoading) {
+      return;
+    }
+    try {
+      if (formKey.currentState!.validate()) {
+        setState(() {
+          buttonIsLoading = true;
+        });
+        postLogInDetailsInAPI(context);
+      }
+    } catch (e) {
+      showSnackbar(context, e.toString(), primaryRedColor);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double myHeight = MediaQuery.of(context).size.height;
+    return WillPopScope(
+      onWillPop: () async {
+        if (DateTime.now().isBefore(goBackApp)) {
+          SystemNavigator.pop();
+          return true;
+        }
+        goBackApp = DateTime.now().add(const Duration(seconds: 2));
+        appExit(context);
+        return false;
+      },
+      child: Theme(
+        data: ThemeClass.lighttheme,
+        child: isLoading
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : Scaffold(
+                body: SafeArea(
+                  child: Builder(
+                    builder: (context) {
+                      return isLoaded
+                          ? const Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : SingleChildScrollView(
+                              child: Padding(
+                                padding: const EdgeInsets.all(30.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(height: myHeight * 0.025),
+                                    Center(
+                                      child: Container(
+                                        height: 22.0,
+                                        width: 147.0,
+                                        decoration: const BoxDecoration(
+                                            image: DecorationImage(
+                                                image: AssetImage(
+                                                    "assets/flattrade_logo.png"))),
+                                      ),
+                                    ),
+                                    SizedBox(height: myHeight * 0.025),
+                                    /* Textform field validation */
+                                    Form(
+                                      key: formKey,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          /* Userid validation */
+                                          SizedBox(height: myHeight * 0.025),
+                                          NameField(
+                                            userIdController: userIdController,
+                                            labelname: "User ID",
+                                          ),
+                                          SizedBox(height: myHeight * 0.025),
+                                          /* Password validation */
+                                          Passwordfield(
+                                            passwordController:
+                                                passwordController,
+                                            labelname: "Password",
+                                          ),
+                                          SizedBox(height: myHeight * 0.025),
+                                          /* pancard Or dateofbirth validation */
+                                          Visibility(
+                                            visible: isBioMetricAuth == null ||
+                                                isBioMetricAuth == false,
+                                            child: PanCardField(
+                                              panController: pancardController,
+                                              labelname: "TOTP/OTP",
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(height: myHeight * 0.025),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        TextButtonWidget(
+                                            buttonName: "GET OTP",
+                                            buttonFunction: () {
+                                              getOtp(context);
+                                            },
+                                            fontStyle: const TextStyle(
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 12.0,
+                                                height: 1.71,
+                                                fontFamily: "inter",
+                                                color: Color.fromRGBO(
+                                                    9, 101, 218, 1))),
+                                        TextButtonWidget(
+                                            buttonName: "FORGOT PASSWORD?",
+                                            buttonFunction: () {
+                                              forgetPassword(context);
+                                            },
+                                            fontStyle: const TextStyle(
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 12.0,
+                                                height: 1.71,
+                                                fontFamily: "inter",
+                                                color: Color.fromRGBO(
+                                                    9, 101, 218, 1))),
+                                      ],
+                                    ),
+                                    SizedBox(height: myHeight * 0.015),
+                                    Visibility(
+                                      visible: isBioMetricAuth == false &&
+                                          BiometricAuthentication
+                                              .availableBiometrics.isNotEmpty,
+                                      child: ElevatedButton(
+                                        onPressed: bioMeticAuthEnable,
+                                        child: const Text("BioMetric"),
+                                      ),
+                                    ),
+                                    SizedBox(height: myHeight * 0.015),
+                                    Center(
+                                      child: MaterialButton(
+                                        elevation: 2,
+                                        minWidth: 250,
+                                        height: 45,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(18),
+                                        ),
+                                        color: appPrimeColor,
+                                        onPressed: () => onLogin(),
+                                        child: buttonIsLoading
+                                            ? const CircularProgressIndicator(
+                                                color: Colors.white,
+                                              )
+                                            : const Text(
+                                                "LOGIN",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 20,
+                                                  fontFamily: 'Roboto',
+                                                  fontWeight: FontWeight.w700,
+                                                  height: 1.04,
+                                                ),
+                                              ),
+                                      ),
+                                    ),
+                                    SizedBox(height: myHeight * 0.050),
+                                    TextButtonWidget(
+                                      buttonName:
+                                          "Don't have an account? Signup Now!",
+                                      buttonFunction: () {
+                                        final url = Uri.parse(
+                                            'https://flattrade.in/open-trading-account?utm_source=NovoApp&utm_medium=organic&utm_campaign=Android');
+
+                                        launchUrl(url);
+                                      },
+                                      fontStyle: const TextStyle(
+                                        color: Color(0xFF0965DA),
+                                        fontSize: 14,
+                                        fontFamily: 'inter',
+                                        fontWeight: FontWeight.w400,
+                                        height: 1.2,
+                                      ),
+                                    ),
+                                    SizedBox(height: myHeight * 0.030),
+                                    Text(
+                                      'SEBI Registration No. INZ000201438. Member Code for NSE: 14572 BSE:6524 MCX: 16765 and ICEX: 2010. CDSL DP ID: 12080300 SEBI Registration No.IN-DP-CDSL-729-2014',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: subTitleTextColor,
+                                          fontFamily: 'inter'),
+                                    ),
+                                    const SizedBox(height: 10.0),
+                                    Text(
+                                        'FLATTRADE is an online brand of Fortune Capital Services Pvt Ltd',
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                            fontSize: 9,
+                                            color: subTitleTextColor,
+                                            fontFamily: 'inter'))
+                                  ],
+                                ),
+                              ),
+                            );
+                    },
+                  ),
+                ),
+              ),
+      ),
+    );
+  }
+}
+
+
+
+novo page:
+
+
+// // ignore_for_file: prefer_const_constructors, use_build_context_synchronously, file_names
+
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, file_names
+
+import 'package:app_settings/app_settings.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:novo/API/APICall.dart';
+import 'package:novo/Provider/change_index.dart';
+import 'package:novo/Provider/provider.dart';
+import 'package:novo/model/novoModels/dashboardmodel.dart';
+import 'package:novo/screens/IPOscreens/Ipopage.dart';
+import 'package:novo/screens/NGBscreens/NcbTabPage.dart';
+import 'package:novo/screens/SGBscreens/sgbpage.dart';
+import 'package:novo/services/biometricuserAuth.dart';
+
+import 'package:novo/utils/colors.dart';
+import 'package:novo/widgets/NOVO%20Widgets/biometricWidget.dart';
+import 'package:package_info/package_info.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
+import '../../widgets/NOVO Widgets/LoadingALertBox.dart';
+import '../../widgets/NOVO Widgets/customLoadingAni.dart';
+import '../../widgets/NOVO Widgets/netWorkConnectionALertBox.dart';
+import '../../widgets/NOVO Widgets/snackbar.dart';
+import 'novoDashboard.dart';
+
+class NovoPage extends StatefulWidget {
+  const NovoPage({super.key});
+  @override
+  State<NovoPage> createState() => _NovoPageState();
+}
+
+final changeindex = ChangeIndex();
+
+class _NovoPageState extends State<NovoPage> with WidgetsBindingObserver {
+  String clientId = '';
+  String clientName = '';
+  bool isDialogShown = false;
+  bool drawerisOpen = false;
+  DateTime goBackApp = DateTime.now();
+  double screenHeight = 0;
+  List<Widget>? pagePropagation;
+  // List<Widget> pagePropagation = [
+  //   NovoHome(dashboardDetails: novoDashBoardDataList),
+  //   Ipopage(),
+  //   Sgbpage(),
+  //   NcbTabPage(),
+  // ];
+  NovoDashBoardDetails? novoDashBoardData;
+  List<SegmentArr> novoDashBoardDataList = [];
+  bool isLoading = true;
+  late final LocalAuthentication auth;
+  bool isSwitch = false;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  AppLifecycleState? appState;
+
+  @override
+  void initState() {
+    super.initState();
+    getClientDetails();
+    getDashBoardData();
+    Provider.of<NavigationProvider>(context, listen: false).themeModel();
+    setState(() {});
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      getBioMetricVerification();
+    });
+    WidgetsBinding.instance.addObserver(this);
+
+    auth = LocalAuthentication();
+    auth.isDeviceSupported().then((bool isSupported) {});
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    appState = state;
+    if (state == AppLifecycleState.resumed) {
+      checkBiometricAvailability();
+    }
+  }
+
+  Future<void> checkBiometricAvailability() async {
+    try {
+      BiometricAuthentication.availableBiometrics =
+          await auth.getAvailableBiometrics();
+
+      if (BiometricAuthentication.availableBiometrics.isEmpty &&
+          isSwitch == true) {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) {
+            return AskBiometric(
+              title: "Mobile Authentication Required",
+              cancelBtn: () async {
+                setState(() {});
+                isSwitch = false;
+                await BiometricAuthentication.setBiometicVerify("N");
+                SystemNavigator.pop();
+              },
+              onPress: () async {
+                if (BiometricAuthentication.availableBiometrics.isEmpty) {
+                  await AppSettings.openAppSettings(
+                      type: AppSettingsType.security);
+                }
+                await BiometricAuthentication.authenticate(auth, context);
+
+                if (BiometricAuthentication.isAuthenticated &&
+                    BiometricAuthentication.availableBiometrics.isNotEmpty) {
+                  await BiometricAuthentication.setBiometicVerify("Y");
+                  Navigator.of(context).pop();
+                } else {
+                  Navigator.of(context).pop();
+                }
+              },
+              content: "Mobile Authentication Required",
+            );
+          },
+        );
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<void> getBioMetricVerification() async {
+    String? isEnableBio = await BiometricAuthentication.getBiometicVerify();
+
+    if (isEnableBio == "N" || isEnableBio == null) {
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) {
+          return AskBiometric(
+            title: "AskBiometric",
+            cancelBtn: () {
+              Navigator.of(context).pop(false);
+            },
+            onPress: () async {
+              Navigator.of(context).pop();
+              _scaffoldKey.currentState?.openDrawer();
+            },
+            content: "content",
+          );
+        },
+      );
+    } else {
+      setState(() {});
+      isSwitch = true;
+
+      if (isEnableBio == "Y" &&
+          BiometricAuthentication.isAuthenticated == false) {
+        await BiometricAuthentication.authenticate(auth, context);
+
+        if (BiometricAuthentication.isAuthenticated == false &&
+            BiometricAuthentication.availableBiometrics.isNotEmpty) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) {
+              return AskBiometric(
+                title: "Verificaition Required",
+                cancelBtn: () {
+                  SystemNavigator.pop();
+                },
+                onPress: () async {
+                  await BiometricAuthentication.authenticate(auth, context);
+                  if (BiometricAuthentication.isAuthenticated) {
+                    await BiometricAuthentication.setBiometicVerify("Y");
+                    Navigator.of(context).pop();
+                  }
+                },
+                content: "verify",
+              );
+            },
+          );
+        }
+      }
+    }
+  }
+
+  void bioMetricToggle(bool toggle) async {
+    setState(() {});
+    isSwitch = toggle;
+
+    if (isSwitch) {
+      if (BiometricAuthentication.availableBiometrics.isEmpty) {
+        await AppSettings.openAppSettings(type: AppSettingsType.security);
+      }
+      await BiometricAuthentication.authenticate(auth, context);
+      if (BiometricAuthentication.isAuthenticated) {
+        await BiometricAuthentication.setBiometicVerify("Y");
+      } else {
+        isSwitch = false;
+        setState(() {});
+        await BiometricAuthentication.setBiometicVerify("N");
+      }
+    } else {
+      await BiometricAuthentication.setBiometicVerify("N");
+    }
+  }
+
+  getDashBoardData() async {
+    novoDashBoardData = await fetchNovoDashBoardDetails(context: context);
+
+    if (novoDashBoardData != null && novoDashBoardData!.segmentArr != null) {
+      novoDashBoardDataList = novoDashBoardData!.segmentArr!
+          .where(
+              (e) => e.status!.toUpperCase() == 'Y' && getPage(e.path) != null)
+          .toList();
+    } else {
+      novoDashBoardDataList = [];
+    }
+    pagePropagation = [
+      NovoHome(dashboardDetails: novoDashBoardDataList),
+      // Ipopage(),
+      // Sgbpage(),
+      // NcbTabPage(),
+      ...novoDashBoardDataList
+          .map((e) => getPage(e.path))
+          .where((element) => element != null)
+    ];
+
+    setState(() {});
+
+    isLoading = false;
+  }
+
+  getPage(value) {
+    switch (value) {
+      case "/ipo":
+        return Ipopage();
+      case "/sgb":
+        return Sgbpage();
+      case "/gsec":
+        return NcbTabPage();
+      default:
+        return null;
+    }
+  }
+
+  getClientDetails() async {
+    try {
+      if (await isInternetConnected()) {
+        clientId = await validateToken(context);
+        SharedPreferences sref = await SharedPreferences.getInstance();
+        sref.setString("clientId", clientId);
+        clientName = await getClientName(context);
+      } else {
+        noInternetConnectAlertDialog(context, () => getClientDetails());
+      }
+      setState(() {});
+    } catch (e) {
+      showSnackbar(context, somethingError, Colors.red);
+    }
+    return null;
+  }
+
+  closeLogoutLoadingAlertBox() async {
+    if (!await logout(context)) {
+      Navigator.of(context).pop();
+    }
+  }
+
+  willPopScopeFunc() async {
+    if (drawerisOpen) {
+      Navigator.of(context).pop();
+      return false;
+    }
+
+    if (isDialogShown) {
+      return true; // Allow the back button to exit
+    }
+    if (DateTime.now().isBefore(goBackApp)) {
+      SystemNavigator.pop();
+      return true;
+    }
+
+    if (changeindex.value != 0) {
+      changeindex.value = 0;
+      return false;
+    }
+
+    goBackApp = DateTime.now().add(Duration(seconds: 2));
+    appExit(context);
+
+    return false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var dartThemeMode =
+        Provider.of<NavigationProvider>(context).themeMode == ThemeMode.dark;
+    Color themeBasedColor =
+        Provider.of<NavigationProvider>(context).themeMode == ThemeMode.dark
+            ? titleTextColorDark
+            : titleTextColorLight;
+    getVersion(context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(
+          'Version: ${snapshot.data!.version}',
+          style: TextStyle(
+              color: themeBasedColor,
+              fontSize: subTitleFontSize,
+              fontFamily: 'inter'),
+        );
+      } else {
+        return Text(
+            'Version'); // You can display a loading indicator here if needed.
+      }
+    }
+
+    return WillPopScope(
+        onWillPop: () => willPopScopeFunc(),
+        child: ValueListenableBuilder(
+          valueListenable: changeindex,
+          builder: (context, value, child) {
+            var darkThemeMode =
+                Provider.of<NavigationProvider>(context).themeMode ==
+                    ThemeMode.dark;
+            return Scaffold(
+              key: _scaffoldKey,
+              onDrawerChanged: (isOpened) => drawerisOpen = isOpened,
+              drawerEdgeDragWidth: MediaQuery.of(context).size.width * 0.10,
+              appBar: AppBar(
+                backgroundColor: Colors.transparent,
+                systemOverlayStyle: SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent,
+                    systemNavigationBarDividerColor: Colors.transparent,
+                    statusBarIconBrightness:
+                        darkThemeMode ? Brightness.light : Brightness.dark),
+                elevation: 0,
+                title: GestureDetector(
+                  onTap: () {
+                    changeindex.value = 0;
+                  },
+                  child: Image.asset(
+                    Provider.of<NavigationProvider>(context).themeMode ==
+                            ThemeMode.dark
+                        ? 'assets/novoLogoBlack.png'
+                        : 'assets/Novo Transp.png',
+                    width: 100.0,
+                    height: 100.0,
+                  ),
+                ),
+                centerTitle: true,
+                leading: Builder(
+                  builder: (BuildContext context) {
+                    return IconButton(
+                        icon: Icon(
+                          CupertinoIcons.line_horizontal_3,
+                          color: themeBasedColor,
+                          size: 25,
+                        ), // Use the menu icon for the drawer
+                        onPressed: () {
+                          Scaffold.of(context).openDrawer(); // Open the drawer
+                        },
+                        color: themeBasedColor);
+                  },
+                ),
+              ),
+              bottomNavigationBar: changeindex.value == 0 ||
+                      isLoading ||
+                      novoDashBoardDataList.isEmpty
+                  ? SizedBox()
+                  : CurvedNavigationBar(
+                      height: 60,
+                      backgroundColor: Colors.transparent,
+                      color: appPrimeColor,
+                      animationDuration: Duration(milliseconds: 500),
+                      index:
+                          changeindex.value - 1 < 0 ? 0 : changeindex.value - 1,
+                      onTap: (newValue) {
+                        changeindex.value = newValue + 1;
+                        ChangeNCBIndex().changeNCBIndex(0);
+                      },
+                      items: <Widget>[
+                          ...novoDashBoardDataList.map(
+                            (e) => Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  e.path == '/ipo'
+                                      ? Image.asset(
+                                          'assets/IPO WNovo Icon.png',
+                                          width: 27,
+                                        )
+                                      : e.path == '/sgb'
+                                          ? Image.asset(
+                                              'assets/SGB WNovo Icon.png',
+                                              width: 34,
+                                            )
+                                          : e.path == '/gsec'
+                                              ? Image.asset(
+                                                  'assets/NCB W.png',
+                                                  width: 30,
+                                                )
+                                              : SizedBox(),
+                                  // dartThemeMode
+                                  //     ?
+                                  // Image.network(e.darkThemeImage!,
+                                  //     width: e.path == '/ipo'
+                                  //         ? 27
+                                  //         : e.path == '/sgb'
+                                  //             ? 34
+                                  //             : e.path == '/gsec'
+                                  //                 ? 30
+                                  //                 : 30, errorBuilder:
+                                  //         (context, error, stackTrace) {
+                                  //   return e.path == '/ipo'
+                                  //       ? Image.asset(
+                                  //           'assets/IPO WNovo Icon.png',
+                                  //           width: 27,
+                                  //         )
+                                  //       : e.path == '/sgb'
+                                  //           ? Image.asset(
+                                  //               'assets/SGB WNovo Icon.png',
+                                  //               width: 34,
+                                  //             )
+                                  //           : e.path == '/gsec'
+                                  //               ? Image.asset(
+                                  //                   'assets/NCB W.png',
+                                  //                   width: 30,
+                                  //                 )
+                                  //               : SizedBox();
+                                  //   // SizedBox();
+                                  // }
+                                  // SizedBox(),
+                                  // ),
+                                  // : Image.network(
+                                  //     e.image!,
+                                  //     width: 30,
+                                  //     errorBuilder:
+                                  //         (context, error, stackTrace) =>
+                                  //             SizedBox(),
+                                  // ),
+                                  SizedBox(
+                                    height: 3.0,
+                                  ),
+                                  Text(
+                                    e.name!,
+                                    style: TextStyle(
+                                        fontSize: 10,
+                                        color: Colors.white,
+                                        fontFamily: 'Kiro'),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                          // Padding(
+                          //   padding: const EdgeInsets.all(4.0),
+                          //   child: Column(
+                          //     mainAxisAlignment: MainAxisAlignment.center,
+                          //     crossAxisAlignment: CrossAxisAlignment.center,
+                          //     children: [
+                          //       Image.asset(
+                          //         'assets/layout.png',
+                          //         width: 30,
+                          //       ),
+                          //       Text(
+                          //         'novo',
+                          //         style: TextStyle(
+                          //             fontSize: 12,
+                          //             color: Colors.white,
+                          //             fontFamily: 'Kiro'),
+                          //       )
+                          //     ],
+                          //   ),
+                          // ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(4.0),
+                          //   child: Column(
+                          //     mainAxisAlignment: MainAxisAlignment.center,
+                          //     crossAxisAlignment: CrossAxisAlignment.center,
+                          //     children: [
+                          //       Image.asset(
+                          //         'assets/IPO WNovo Icon.png',
+                          //         width: 27,
+                          //       ),
+                          //       SizedBox(
+                          //         height: 3.0,
+                          //       ),
+                          //       Text(
+                          //         'IPO',
+                          //         style: TextStyle(
+                          //             fontSize: 10,
+                          //             color: Colors.white,
+                          //             fontFamily: 'Kiro'),
+                          //       )
+                          //     ],
+                          //   ),
+                          // ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(2.0),
+                          //   child: Column(
+                          //     mainAxisAlignment: MainAxisAlignment.center,
+                          //     crossAxisAlignment: CrossAxisAlignment.center,
+                          //     children: [
+                          //       Image.asset(
+                          //         'assets/SGB WNovo Icon.png',
+                          //         width: 34,
+                          //       ),
+                          //       SizedBox(
+                          //         height: 3.0,
+                          //       ),
+                          //       Text(
+                          //         'SGB',
+                          //         style: TextStyle(
+                          //             fontSize: 10,
+                          //             color: Colors.white,
+                          //             fontFamily: 'Kiro'),
+                          //       )
+                          //     ],
+                          //   ),
+                          // ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(6.0),
+                          //   child: Column(
+                          //     mainAxisAlignment: MainAxisAlignment.center,
+                          //     crossAxisAlignment: CrossAxisAlignment.center,
+                          //     children: [
+                          //       Image.asset(
+                          //         'assets/NCB W.png',
+                          //         width: 30,
+                          //       ),
+                          //       Text(
+                          //         'G-Sec',
+                          //         style: TextStyle(
+                          //             fontSize: 11,
+                          //             color: Colors.white,
+                          //             fontFamily: 'Kiro'),
+                          //       )
+                          //     ],
+                          //   ),
+                          // ),
+                        ]),
+              drawer: Drawer(
+                child: Column(
+                  children: <Widget>[
+                    DrawerHeader(
+                        decoration: BoxDecoration(
+                            color: Provider.of<NavigationProvider>(context)
+                                        .themeMode ==
+                                    ThemeMode.dark
+                                ? titleTextColorLight
+                                : appPrimeColor),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: 60,
+                                  height: 60,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 5),
+                                  decoration: BoxDecoration(
+                                      color: Provider.of<NavigationProvider>(
+                                                      context)
+                                                  .themeMode ==
+                                              ThemeMode.dark
+                                          ? appPrimeColor
+                                          : Color.fromRGBO(187, 222, 251, 1),
+                                      borderRadius:
+                                          BorderRadius.circular(50.0)),
+                                  child: FittedBox(
+                                    child: Text(
+                                      clientName,
+                                      style: TextStyle(
+                                          color:
+                                              Provider.of<NavigationProvider>(
+                                                              context)
+                                                          .themeMode ==
+                                                      ThemeMode.dark
+                                                  ? Color.fromRGBO(
+                                                      187, 222, 251, 1)
+                                                  : appPrimeColor,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Kiro'),
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    Provider.of<NavigationProvider>(context,
+                                            listen: false)
+                                        .toggleTheme(context);
+                                  },
+                                  icon: Provider.of<NavigationProvider>(context)
+                                              .themeMode ==
+                                          ThemeMode.dark
+                                      ? Icon(
+                                          CupertinoIcons.moon_stars_fill,
+                                          color: Colors.white,
+                                          size: 25.0,
+                                        )
+                                      : Icon(
+                                          CupertinoIcons.brightness_solid,
+                                          color: Colors.white,
+                                          size: 25.0,
+                                        ),
+                                )
+                              ],
+                            ),
+                            Text(
+                              clientId.toString(),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: titleFontSize,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Kiro'),
+                            ),
+                          ],
+                        )),
+                    ListTile(
+                      dense: true,
+                      leading: Image.asset(
+                        "assets/layout.png",
+                        width: 20.0,
+                        color: Provider.of<NavigationProvider>(context)
+                                    .themeMode ==
+                                ThemeMode.dark
+                            ? titleTextColorDark
+                            : titleTextColorLight,
+                      ),
+                      title: Text(
+                        "NOVO",
+                        style: TextStyle(
+                            fontFamily: 'Kiro',
+                            fontSize: titleFontSize,
+                            fontWeight: FontWeight.bold,
+                            color: changeindex.value == 0
+                                ? Provider.of<NavigationProvider>(context)
+                                            .themeMode ==
+                                        ThemeMode.dark
+                                    ? Colors.blue.shade400
+                                    : appPrimeColor
+                                : Provider.of<NavigationProvider>(context)
+                                            .themeMode ==
+                                        ThemeMode.dark
+                                    ? titleTextColorDark
+                                    : titleTextColorLight),
+                      ),
+                      onTap: () {
+                        changeindex.value = 0;
+
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ...novoDashBoardDataList.map(
+                      (e) => ListTile(
+                        dense: true,
+                        leading: Provider.of<NavigationProvider>(context)
+                                    .themeMode ==
+                                ThemeMode.dark
+                            ? Image.network(
+                                "${e.darkThemeImage}",
+                                width: 20.0,
+                              )
+                            : Image.network(
+                                "${e.image}",
+                                width: 20.0,
+                              ),
+                        title: Text(
+                          '${e.name}',
+                          style: TextStyle(
+                              fontFamily: 'Kiro',
+                              fontSize: titleFontSize,
+                              fontWeight: FontWeight.bold,
+                              color: changeindex.value ==
+                                      novoDashBoardDataList.indexOf(e) + 1
+                                  ? Provider.of<NavigationProvider>(context)
+                                              .themeMode ==
+                                          ThemeMode.dark
+                                      ? Colors.blue.shade400
+                                      : appPrimeColor
+                                  : Provider.of<NavigationProvider>(context)
+                                              .themeMode ==
+                                          ThemeMode.dark
+                                      ? titleTextColorDark
+                                      : titleTextColorLight),
+                        ),
+                        onTap: () {
+                          changeindex.value =
+                              novoDashBoardDataList.indexOf(e) + 1;
+
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+
+                    // Flexible(
+                    //   fit: FlexFit.loose,
+                    //   child: ListView.builder(
+                    //     shrinkWrap: true,
+                    //     itemCount: novoDashBoardDataList.length,
+                    //     itemBuilder: (BuildContext context, int index) {
+                    //       return Container(
+                    //         color: Colors.blue,
+                    //         child: ListTile(
+                    //           dense: true,
+                    //           leading: Image.asset(
+                    //             Provider.of<NavigationProvider>(context)
+                    //                         .themeMode ==
+                    //                     ThemeMode.dark
+                    //                 ? "assets/IPO WNovo Icon.png"
+                    //                 : "assets/IPO BNovo Icon.png",
+                    //             width: 20.0,
+                    //           ),
+                    //           title: Text(
+                    //             '${novoDashBoardDataList[index].name}',
+                    //             style: TextStyle(
+                    //                 fontFamily: 'Kiro',
+                    //                 fontSize: titleFontSize,
+                    //                 fontWeight: FontWeight.bold,
+                    //                 color: changeindex.value == 1
+                    //                     ? Provider.of<NavigationProvider>(
+                    //                                     context)
+                    //                                 .themeMode ==
+                    //                             ThemeMode.dark
+                    //                         ? Colors.blue.shade400
+                    //                         : appPrimeColor
+                    //                     : Provider.of<NavigationProvider>(
+                    //                                     context)
+                    //                                 .themeMode ==
+                    //                             ThemeMode.dark
+                    //                         ? titleTextColorDark
+                    //                         : titleTextColorLight),
+                    //           ),
+                    //           onTap: () {
+                    //             changeindex.value = 1;
+
+                    //             Navigator.pop(context);
+                    //           },
+                    //         ),
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
+
+                    // ListTile(
+                    //   dense: true,
+                    //   leading: Image.asset(
+                    //     Provider.of<NavigationProvider>(context).themeMode ==
+                    //             ThemeMode.dark
+                    //         ? "assets/IPO WNovo Icon.png"
+                    //         : "assets/IPO BNovo Icon.png",
+                    //     width: 20.0,
+                    //   ),
+                    //   title: Text(
+                    //     "IPO",
+                    //     style: TextStyle(
+                    //         fontFamily: 'Kiro',
+                    //         fontSize: titleFontSize,
+                    //         fontWeight: FontWeight.bold,
+                    //         color: changeindex.value == 1
+                    //             ? Provider.of<NavigationProvider>(context)
+                    //                         .themeMode ==
+                    //                     ThemeMode.dark
+                    //                 ? Colors.blue.shade400
+                    //                 : appPrimeColor
+                    //             : Provider.of<NavigationProvider>(context)
+                    //                         .themeMode ==
+                    //                     ThemeMode.dark
+                    //                 ? titleTextColorDark
+                    //                 : titleTextColorLight),
+                    //   ),
+                    //   onTap: () {
+                    //     changeindex.value = 1;
+
+                    //     Navigator.pop(context);
+                    //   },
+                    // ),
+                    // ListTile(
+                    //   dense: true,
+                    //   leading: Image.asset(
+                    //     Provider.of<NavigationProvider>(context).themeMode ==
+                    //             ThemeMode.dark
+                    //         ? "assets/SGB WNovo Icon.png"
+                    //         : "assets/SGB BNovo Icon.png",
+                    //     width: 25.0,
+                    //   ),
+                    //   title: Text(
+                    //     "SGB",
+                    //     style: TextStyle(
+                    //         fontFamily: 'Kiro',
+                    //         fontSize: titleFontSize,
+                    //         fontWeight: FontWeight.bold,
+                    //         color: changeindex.value == 2
+                    //             ? Provider.of<NavigationProvider>(context)
+                    //                         .themeMode ==
+                    //                     ThemeMode.dark
+                    //                 ? Colors.blue.shade400
+                    //                 : appPrimeColor
+                    //             : themeBasedColor),
+                    //   ),
+                    //   onTap: () {
+                    //     changeindex.value = 2;
+
+                    //     Navigator.pop(context);
+                    //   },
+                    // ),
+                    // ListTile(
+                    //   dense: true,
+                    //   leading: Image.asset(
+                    //     Provider.of<NavigationProvider>(context).themeMode ==
+                    //             ThemeMode.dark
+                    //         ? "assets/NCB W.png"
+                    //         : "assets/NCB B.png",
+                    //     width: 25.0,
+                    //   ),
+                    //   title: Text(
+                    //     "G-Sec",
+                    //     style: TextStyle(
+                    //         fontFamily: 'Kiro',
+                    //         fontSize: titleFontSize,
+                    //         fontWeight: FontWeight.bold,
+                    //         color: changeindex.value == 3
+                    //             ? Provider.of<NavigationProvider>(context)
+                    //                         .themeMode ==
+                    //                     ThemeMode.dark
+                    //                 ? Colors.blue.shade400
+                    //                 : appPrimeColor
+                    //             : themeBasedColor),
+                    //   ),
+                    //   onTap: () {
+                    //     ChangeNCBIndex().changeNCBIndex(0);
+                    //     changeindex.value = 3;
+
+                    //     Navigator.pop(context);
+                    //   },
+                    // ),
+
+                    ListTile(
+                      dense: true,
+                      leading: Switch(
+                        activeColor: Color.fromRGBO(9, 101, 218, 1),
+                        trackOutlineWidth: const WidgetStatePropertyAll(1),
+                        value: isSwitch,
+                        onChanged: bioMetricToggle,
+                      ),
+                      title: Text(
+                        "BioMetric",
+                        style: TextStyle(
+                          fontFamily: 'Kiro',
+                          fontSize: titleFontSize,
+                          fontWeight: FontWeight.bold,
+                          color: themeBasedColor,
+                        ),
+                      ),
+                    ),
+
+                    ListTile(
+                      dense: true,
+                      leading: Icon(
+                        CupertinoIcons.power,
+                        size: 17,
+                        color: themeBasedColor,
+                      ),
+                      title: Text(
+                        "Logout",
+                        style: TextStyle(
+                          fontFamily: 'Kiro',
+                          fontSize: titleFontSize,
+                          fontWeight: FontWeight.bold,
+                          color: themeBasedColor,
+                        ),
+                      ),
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              content: Text(
+                                'Do you want to Logout ?',
+                                style: TextStyle(
+                                    fontSize: 13.0,
+                                    color: themeBasedColor,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              actions: [
+                                SizedBox(
+                                  height: 25.0,
+                                  child: ElevatedButton(
+                                      style: ButtonStyle(
+                                          shape: MaterialStatePropertyAll(
+                                              RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius
+                                                      .circular(18.0))),
+                                          backgroundColor:
+                                              MaterialStatePropertyAll(
+                                                  Provider.of<NavigationProvider>(
+                                                                  context)
+                                                              .themeMode ==
+                                                          ThemeMode.dark
+                                                      ? Colors.white
+                                                      : appPrimeColor)),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        loadingAlertBox(
+                                            context, 'Logging Out...');
+                                        closeLogoutLoadingAlertBox();
+                                      },
+                                      child: Text(
+                                        'Yes',
+                                        style: TextStyle(
+                                            fontFamily: 'inter',
+                                            fontSize: 12.0,
+                                            color:
+                                                Provider.of<NavigationProvider>(
+                                                                context)
+                                                            .themeMode ==
+                                                        ThemeMode.dark
+                                                    ? Colors.black
+                                                    : Colors.white),
+                                      )),
+                                ),
+                                SizedBox(
+                                  height: 25.0,
+                                  child: ElevatedButton(
+                                      style: ButtonStyle(
+                                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(18.0))),
+                                          backgroundColor: MaterialStatePropertyAll(
+                                              Provider.of<NavigationProvider>(context).themeMode == ThemeMode.dark
+                                                  ? Colors.white
+                                                  : appPrimeColor)),
+                                      onPressed: () =>
+                                          Navigator.of(context).pop(),
+                                      child: Text('No',
+                                          style: TextStyle(
+                                              fontFamily: 'inter',
+                                              fontSize: 12.0,
+                                              color:
+                                                  Provider.of<NavigationProvider>(context).themeMode ==
+                                                          ThemeMode.dark
+                                                      ? Colors.black
+                                                      : Colors.white))),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+
+                        // Implement logout functionality
+                      },
+                    ),
+                    Spacer(),
+                    FutureBuilder<PackageInfo>(
+                      future: PackageInfo.fromPlatform(),
+                      builder: (context, snapshot) =>
+                          getVersion(context, snapshot),
+                    ),
+                    SizedBox(
+                      height: 15.0,
+                    )
+                  ],
+                ),
+              ),
+              body: isLoading
+                  ? Center(child: loadingProgress())
+                  : pagePropagation![changeindex.getIndex],
+            );
+          },
+        ));
+  }
+}
+
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
+// import 'package:novo/API/APICall.dart';
+// import 'package:novo/Provider/change_index.dart';
+// import 'package:novo/Provider/provider.dart';
+// import 'package:novo/screens/IPOscreens/Ipopage.dart';
+// import 'package:novo/screens/NGBscreens/NcbTabPage.dart';
+// import 'package:novo/screens/SGBscreens/sgbpage.dart';
+
+// import 'package:novo/utils/colors.dart';
+// import 'package:package_info/package_info.dart';
+// import 'package:provider/provider.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
+// import '../../widgets/NOVO Widgets/LoadingALertBox.dart';
+// import '../../widgets/NOVO Widgets/netWorkConnectionALertBox.dart';
+// import '../../widgets/NOVO Widgets/snackbar.dart';
+// import 'novoDashboard.dart';
+
+// class NovoPage extends StatefulWidget {
+//   const NovoPage({super.key});
+//   @override
+//   State<NovoPage> createState() => _NovoPageState();
+// }
+
+// final changeindex = ChangeIndex();
+
+// class _NovoPageState extends State<NovoPage> {
+//   String clientId = '';
+//   String clientName = '';
+//   bool isDialogShown = false;
+//   bool drawerisOpen = false;
+//   DateTime goBackApp = DateTime.now();
+//   double screenHeight = 0;
+//   List<Widget> pagePropagation = [
+//     NovoHome(),
+//     Ipopage(),
+//     Sgbpage(),
+//     NcbTabPage(),
+//   ];
+//   @override
+//   void initState() {
+//     super.initState();
+//     getClientDetails();
+//     Provider.of<NavigationProvider>(context, listen: false).themeModel();
+//     setState(() {});
+//   }
+
+//   getClientDetails() async {
+//     try {
+//       if (await isInternetConnected()) {
+//         clientId = await validateToken(context);
+//         SharedPreferences sref = await SharedPreferences.getInstance();
+//         sref.setString("clientId", clientId);
+//         clientName = await getClientName(context);
+//       } else {
+//         noInternetConnectAlertDialog(context, () => getClientDetails());
+//       }
+//       setState(() {});
+//     } catch (e) {
+//       showSnackbar(context, somethingError, Colors.red);
+//     }
+//     return null;
+//   }
+
+//   closeLogoutLoadingAlertBox() async {
+//     if (!await logout(context)) {
+//       Navigator.of(context).pop();
+//     }
+//   }
+
+//   willPopScopeFunc() async {
+//     if (drawerisOpen) {
+//       Navigator.of(context).pop();
+//       return false;
+//     }
+
+//     if (isDialogShown) {
+//       return true; // Allow the back button to exit
+//     }
+//     if (DateTime.now().isBefore(goBackApp)) {
+//       SystemNavigator.pop();
+//       return true;
+//     }
+
+//     if (changeindex.value != 0) {
+//       changeindex.value = 0;
+//       return false;
+//     }
+
+//     goBackApp = DateTime.now().add(Duration(seconds: 2));
+//     appExit(context);
+
+//     return false;
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     Color themeBasedColor =
+//         Provider.of<NavigationProvider>(context).themeMode == ThemeMode.dark
+//             ? titleTextColorDark
+//             : titleTextColorLight;
+//     getVersion(context, snapshot) {
+//       if (snapshot.hasData) {
+//         return Text(
+//           'Version: ${snapshot.data!.version}',
+//           style: TextStyle(
+//               color: themeBasedColor,
+//               fontSize: subTitleFontSize,
+//               fontFamily: 'inter'),
+//         );
+//       } else {
+//         return Text(
+//             'Version'); // You can display a loading indicator here if needed.
+//       }
+//     }
+
+//     return WillPopScope(
+//         onWillPop: () => willPopScopeFunc(),
+//         child: ValueListenableBuilder(
+//           valueListenable: changeindex,
+//           builder: (context, value, child) {
+//             var darkThemeMode =
+//                 Provider.of<NavigationProvider>(context).themeMode ==
+//                     ThemeMode.dark;
+//             return Scaffold(
+//               onDrawerChanged: (isOpened) => drawerisOpen = isOpened,
+//               drawerEdgeDragWidth: MediaQuery.of(context).size.width * 0.10,
+//               appBar: AppBar(
+//                 backgroundColor: Colors.transparent,
+//                 systemOverlayStyle: SystemUiOverlayStyle(
+//                     statusBarColor: Colors.transparent,
+//                     systemNavigationBarDividerColor: Colors.transparent,
+//                     statusBarIconBrightness:
+//                         darkThemeMode ? Brightness.light : Brightness.dark),
+//                 elevation: 0,
+//                 title: Image.asset(
+//                   Provider.of<NavigationProvider>(context).themeMode ==
+//                           ThemeMode.dark
+//                       ? 'assets/novoLogoBlack.png'
+//                       : 'assets/Novo Transp.png',
+//                   width: 100.0,
+//                   height: 100.0,
+//                 ),
+//                 centerTitle: true,
+//                 leading: Builder(
+//                   builder: (BuildContext context) {
+//                     return IconButton(
+//                         icon: Icon(
+//                           CupertinoIcons.line_horizontal_3,
+//                           color: themeBasedColor,
+//                           size: 25,
+//                         ), // Use the menu icon for the drawer
+//                         onPressed: () {
+//                           Scaffold.of(context).openDrawer(); // Open the drawer
+//                         },
+//                         color: themeBasedColor);
+//                   },
+//                 ),
+//               ),
+//               bottomNavigationBar: CurvedNavigationBar(
+//                   height: 60,
+//                   backgroundColor: Colors.transparent,
+//                   color: appPrimeColor,
+//                   animationDuration: Duration(milliseconds: 500),
+//                   index: changeindex.value,
+//                   onTap: (newValue) {
+//                     changeindex.value = newValue;
+//                     ChangeNCBIndex().changeNCBIndex(0);
+//                   },
+//                   items: <Widget>[
+//                     Padding(
+//                       padding: const EdgeInsets.all(4.0),
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.center,
+//                         crossAxisAlignment: CrossAxisAlignment.center,
+//                         children: [
+//                           Image.asset(
+//                             'assets/layout.png',
+//                             width: 30,
+//                           ),
+//                           Text(
+//                             'novo',
+//                             style: TextStyle(
+//                                 fontSize: 12,
+//                                 color: Colors.white,
+//                                 fontFamily: 'Kiro'),
+//                           )
+//                         ],
+//                       ),
+//                     ),
+//                     Padding(
+//                       padding: const EdgeInsets.all(4.0),
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.center,
+//                         crossAxisAlignment: CrossAxisAlignment.center,
+//                         children: [
+//                           Image.asset(
+//                             'assets/IPO WNovo Icon.png',
+//                             width: 27,
+//                           ),
+//                           SizedBox(
+//                             height: 3.0,
+//                           ),
+//                           Text(
+//                             'IPO',
+//                             style: TextStyle(
+//                                 fontSize: 10,
+//                                 color: Colors.white,
+//                                 fontFamily: 'Kiro'),
+//                           )
+//                         ],
+//                       ),
+//                     ),
+//                     Padding(
+//                       padding: const EdgeInsets.all(2.0),
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.center,
+//                         crossAxisAlignment: CrossAxisAlignment.center,
+//                         children: [
+//                           Image.asset(
+//                             'assets/SGB WNovo Icon.png',
+//                             width: 34,
+//                           ),
+//                           SizedBox(
+//                             height: 3.0,
+//                           ),
+//                           Text(
+//                             'SGB',
+//                             style: TextStyle(
+//                                 fontSize: 10,
+//                                 color: Colors.white,
+//                                 fontFamily: 'Kiro'),
+//                           )
+//                         ],
+//                       ),
+//                     ),
+//                     Padding(
+//                       padding: const EdgeInsets.all(6.0),
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.center,
+//                         crossAxisAlignment: CrossAxisAlignment.center,
+//                         children: [
+//                           Image.asset(
+//                             'assets/NCB W.png',
+//                             width: 30,
+//                           ),
+//                           Text(
+//                             'G-Sec',
+//                             style: TextStyle(
+//                                 fontSize: 11,
+//                                 color: Colors.white,
+//                                 fontFamily: 'Kiro'),
+//                           )
+//                         ],
+//                       ),
+//                     ),
+//                   ]),
+//               drawer: Drawer(
+//                 child: Column(
+//                   children: <Widget>[
+//                     DrawerHeader(
+//                         decoration: BoxDecoration(
+//                             color: Provider.of<NavigationProvider>(context)
+//                                         .themeMode ==
+//                                     ThemeMode.dark
+//                                 ? titleTextColorLight
+//                                 : appPrimeColor),
+//                         child: Column(
+//                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           children: [
+//                             Row(
+//                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                               crossAxisAlignment: CrossAxisAlignment.start,
+//                               children: [
+//                                 Container(
+//                                   width: 60,
+//                                   height: 60,
+//                                   padding: EdgeInsets.symmetric(
+//                                       horizontal: 10, vertical: 5),
+//                                   decoration: BoxDecoration(
+//                                       color: Provider.of<NavigationProvider>(
+//                                                       context)
+//                                                   .themeMode ==
+//                                               ThemeMode.dark
+//                                           ? appPrimeColor
+//                                           : Color.fromRGBO(187, 222, 251, 1),
+//                                       borderRadius:
+//                                           BorderRadius.circular(50.0)),
+//                                   child: FittedBox(
+//                                     child: Text(
+//                                       clientName,
+//                                       style: TextStyle(
+//                                           color:
+//                                               Provider.of<NavigationProvider>(
+//                                                               context)
+//                                                           .themeMode ==
+//                                                       ThemeMode.dark
+//                                                   ? Color.fromRGBO(
+//                                                       187, 222, 251, 1)
+//                                                   : appPrimeColor,
+//                                           fontSize: 18,
+//                                           fontWeight: FontWeight.bold,
+//                                           fontFamily: 'Kiro'),
+//                                     ),
+//                                   ),
+//                                 ),
+//                                 IconButton(
+//                                   onPressed: () {
+//                                     Provider.of<NavigationProvider>(context,
+//                                             listen: false)
+//                                         .toggleTheme(context);
+//                                   },
+//                                   icon: Provider.of<NavigationProvider>(context)
+//                                               .themeMode ==
+//                                           ThemeMode.dark
+//                                       ? Icon(
+//                                           CupertinoIcons.moon_stars_fill,
+//                                           color: Colors.white,
+//                                           size: 25.0,
+//                                         )
+//                                       : Icon(
+//                                           CupertinoIcons.brightness_solid,
+//                                           color: Colors.white,
+//                                           size: 25.0,
+//                                         ),
+//                                 )
+//                               ],
+//                             ),
+//                             Text(
+//                               clientId.toString(),
+//                               style: TextStyle(
+//                                   color: Colors.white,
+//                                   fontSize: titleFontSize,
+//                                   fontWeight: FontWeight.bold,
+//                                   fontFamily: 'Kiro'),
+//                             ),
+//                           ],
+//                         )),
+//                     ListTile(
+//                       dense: true,
+//                       leading: Image.asset(
+//                         "assets/layout.png",
+//                         width: 20.0,
+//                         color: Provider.of<NavigationProvider>(context)
+//                                     .themeMode ==
+//                                 ThemeMode.dark
+//                             ? titleTextColorDark
+//                             : titleTextColorLight,
+//                       ),
+//                       title: Text(
+//                         "NOVO",
+//                         style: TextStyle(
+//                             fontFamily: 'Kiro',
+//                             fontSize: titleFontSize,
+//                             fontWeight: FontWeight.bold,
+//                             color: changeindex.value == 0
+//                                 ? Provider.of<NavigationProvider>(context)
+//                                             .themeMode ==
+//                                         ThemeMode.dark
+//                                     ? Colors.blue.shade400
+//                                     : appPrimeColor
+//                                 : Provider.of<NavigationProvider>(context)
+//                                             .themeMode ==
+//                                         ThemeMode.dark
+//                                     ? titleTextColorDark
+//                                     : titleTextColorLight),
+//                       ),
+//                       onTap: () {
+//                         changeindex.value = 0;
+
+//                         Navigator.pop(context);
+//                       },
+//                     ),
+//                     ListTile(
+//                       dense: true,
+//                       leading: Image.asset(
+//                         Provider.of<NavigationProvider>(context).themeMode ==
+//                                 ThemeMode.dark
+//                             ? "assets/IPO WNovo Icon.png"
+//                             : "assets/IPO BNovo Icon.png",
+//                         width: 20.0,
+//                       ),
+//                       title: Text(
+//                         "IPO",
+//                         style: TextStyle(
+//                             fontFamily: 'Kiro',
+//                             fontSize: titleFontSize,
+//                             fontWeight: FontWeight.bold,
+//                             color: changeindex.value == 1
+//                                 ? Provider.of<NavigationProvider>(context)
+//                                             .themeMode ==
+//                                         ThemeMode.dark
+//                                     ? Colors.blue.shade400
+//                                     : appPrimeColor
+//                                 : Provider.of<NavigationProvider>(context)
+//                                             .themeMode ==
+//                                         ThemeMode.dark
+//                                     ? titleTextColorDark
+//                                     : titleTextColorLight),
+//                       ),
+//                       onTap: () {
+//                         changeindex.value = 1;
+
+//                         Navigator.pop(context);
+//                       },
+//                     ),
+//                     ListTile(
+//                       dense: true,
+//                       leading: Image.asset(
+//                         Provider.of<NavigationProvider>(context).themeMode ==
+//                                 ThemeMode.dark
+//                             ? "assets/SGB WNovo Icon.png"
+//                             : "assets/SGB BNovo Icon.png",
+//                         width: 25.0,
+//                       ),
+//                       title: Text(
+//                         "SGB",
+//                         style: TextStyle(
+//                             fontFamily: 'Kiro',
+//                             fontSize: titleFontSize,
+//                             fontWeight: FontWeight.bold,
+//                             color: changeindex.value == 2
+//                                 ? Provider.of<NavigationProvider>(context)
+//                                             .themeMode ==
+//                                         ThemeMode.dark
+//                                     ? Colors.blue.shade400
+//                                     : appPrimeColor
+//                                 : themeBasedColor),
+//                       ),
+//                       onTap: () {
+//                         changeindex.value = 2;
+
+//                         Navigator.pop(context);
+//                       },
+//                     ),
+//                     ListTile(
+//                       dense: true,
+//                       leading: Image.asset(
+//                         Provider.of<NavigationProvider>(context).themeMode ==
+//                                 ThemeMode.dark
+//                             ? "assets/NCB W.png"
+//                             : "assets/NCB B.png",
+//                         width: 25.0,
+//                       ),
+//                       title: Text(
+//                         "G-Sec",
+//                         style: TextStyle(
+//                             fontFamily: 'Kiro',
+//                             fontSize: titleFontSize,
+//                             fontWeight: FontWeight.bold,
+//                             color: changeindex.value == 3
+//                                 ? Provider.of<NavigationProvider>(context)
+//                                             .themeMode ==
+//                                         ThemeMode.dark
+//                                     ? Colors.blue.shade400
+//                                     : appPrimeColor
+//                                 : themeBasedColor),
+//                       ),
+//                       onTap: () {
+//                         ChangeNCBIndex().changeNCBIndex(0);
+//                         changeindex.value = 3;
+
+//                         Navigator.pop(context);
+//                       },
+//                     ),
+//                     ListTile(
+//                       dense: true,
+//                       leading: Icon(
+//                         CupertinoIcons.power,
+//                         size: 17,
+//                         color: themeBasedColor,
+//                       ),
+//                       title: Text(
+//                         "Logout",
+//                         style: TextStyle(
+//                           fontFamily: 'Kiro',
+//                           fontSize: titleFontSize,
+//                           fontWeight: FontWeight.bold,
+//                           color: themeBasedColor,
+//                         ),
+//                       ),
+//                       onTap: () {
+//                         showDialog(
+//                           context: context,
+//                           builder: (context) {
+//                             return AlertDialog(
+//                               content: Text(
+//                                 'Do you want to Logout ?',
+//                                 style: TextStyle(
+//                                     fontSize: 13.0,
+//                                     color: themeBasedColor,
+//                                     fontWeight: FontWeight.bold),
+//                               ),
+//                               actions: [
+//                                 SizedBox(
+//                                   height: 25.0,
+//                                   child: ElevatedButton(
+//                                       style: ButtonStyle(
+//                                           shape: MaterialStatePropertyAll(
+//                                               RoundedRectangleBorder(
+//                                                   borderRadius: BorderRadius
+//                                                       .circular(18.0))),
+//                                           backgroundColor:
+//                                               MaterialStatePropertyAll(
+//                                                   Provider.of<NavigationProvider>(
+//                                                                   context)
+//                                                               .themeMode ==
+//                                                           ThemeMode.dark
+//                                                       ? Colors.white
+//                                                       : appPrimeColor)),
+//                                       onPressed: () {
+//                                         Navigator.of(context).pop();
+//                                         loadingAlertBox(
+//                                             context, 'Logging Out...');
+//                                         closeLogoutLoadingAlertBox();
+//                                       },
+//                                       child: Text(
+//                                         'Yes',
+//                                         style: TextStyle(
+//                                             fontFamily: 'inter',
+//                                             fontSize: 12.0,
+//                                             color:
+//                                                 Provider.of<NavigationProvider>(
+//                                                                 context)
+//                                                             .themeMode ==
+//                                                         ThemeMode.dark
+//                                                     ? Colors.black
+//                                                     : Colors.white),
+//                                       )),
+//                                 ),
+//                                 SizedBox(
+//                                   height: 25.0,
+//                                   child: ElevatedButton(
+//                                       style: ButtonStyle(
+//                                           shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+//                                               borderRadius:
+//                                                   BorderRadius.circular(18.0))),
+//                                           backgroundColor: MaterialStatePropertyAll(
+//                                               Provider.of<NavigationProvider>(context).themeMode == ThemeMode.dark
+//                                                   ? Colors.white
+//                                                   : appPrimeColor)),
+//                                       onPressed: () =>
+//                                           Navigator.of(context).pop(),
+//                                       child: Text('No',
+//                                           style: TextStyle(
+//                                               fontFamily: 'inter',
+//                                               fontSize: 12.0,
+//                                               color:
+//                                                   Provider.of<NavigationProvider>(context).themeMode ==
+//                                                           ThemeMode.dark
+//                                                       ? Colors.black
+//                                                       : Colors.white))),
+//                                 ),
+//                               ],
+//                             );
+//                           },
+//                         );
+
+//                         // Implement logout functionality
+//                       },
+//                     ),
+//                     Spacer(),
+//                     FutureBuilder<PackageInfo>(
+//                       future: PackageInfo.fromPlatform(),
+//                       builder: (context, snapshot) =>
+//                           getVersion(context, snapshot),
+//                     ),
+//                     SizedBox(
+//                       height: 15.0,
+//                     )
+//                   ],
+//                 ),
+//               ),
+//               body: pagePropagation[changeindex.getIndex],
+//             );
+//           },
+//         ));
+//   }
+// }
+
+
+biometric user auth:
+
+
+
+// ignore_for_file: file_names, use_build_context_synchronously
+
+import 'package:local_auth/local_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class BiometricAuthentication {
+  static bool isAuthenticated = false;
+  static List<BiometricType> availableBiometrics = [];
+
+  static Future<void> authenticate(LocalAuthentication auth, context) async {
+    try {
+      bool canCheckBiometrics = await auth.canCheckBiometrics;
+      availableBiometrics = await auth.getAvailableBiometrics();
+
+      if (availableBiometrics.isEmpty) {
+        // await AppSettings.openAppSettings(type: AppSettingsType.security);
+      } else if (canCheckBiometrics && availableBiometrics.isNotEmpty) {
+        isAuthenticated = await auth.authenticate(
+          localizedReason: 'Authenticate to access features',
+          options: const AuthenticationOptions(
+            stickyAuth: true,
+            biometricOnly: false,
+          ),
+        );
+      } else {
+        isAuthenticated = false;
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  static Future<void> setBiometicVerify(String isEnableBioMetric) async {
+    var pref = await SharedPreferences.getInstance();
+    pref.setString("isEnableBioMetric", isEnableBioMetric);
+  }
+
+  static Future<String?> getBiometicVerify() async {
+    var pref = await SharedPreferences.getInstance();
+    return pref.getString("isEnableBioMetric");
+  }
+}
+
+
+biometric widget:
+
+
+// ignore_for_file: file_names
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+class AskBiometric extends StatelessWidget {
+  final String title;
+  final String content;
+  final Function cancelBtn;
+  final Function onPress;
+  const AskBiometric({
+    super.key,
+    required this.title,
+    required this.cancelBtn,
+    required this.onPress,
+    required this.content,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      surfaceTintColor: Colors.white,
+      title: Text(
+        title,
+        style: TextStyle(fontSize: 24),
+      ),
+      titleTextStyle: Theme.of(context).textTheme.displaySmall,
+      content: Text(content),
+      contentTextStyle: Theme.of(context).textTheme.bodyLarge,
+      actionsAlignment: MainAxisAlignment.spaceEvenly,
+      actions: <Widget>[
+        MaterialButton(
+          elevation: 0,
+          minWidth: 100,
+          color: Color(0xFF8198A6).withOpacity(0.8),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          child: const Text(
+            'Cancel',
+            style: TextStyle(color: Colors.white),
+          ),
+          // onPressed: () {
+          //   title != "AskBiometric"
+          //       ? SystemNavigator.pop()
+          //       : Navigator.of(context).pop(false);
+
+          //       if() {
+
+          //       }
+          // },
+
+          onPressed: () {
+            cancelBtn();
+          },
+        ),
+        MaterialButton(
+          elevation: 0,
+          minWidth: 100,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          color: Color.fromRGBO(9, 101, 218, 1),
+          onPressed: () => onPress(),
+          child: const Text(
+            'Proceed',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+
+
+
+

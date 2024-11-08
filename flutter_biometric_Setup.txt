@@ -1,0 +1,202 @@
+biometric setup
+
+1.flutter pub add local_auth
+2.ios->runner->info.plist
+
+<key>NSFaceIDUsageDescription</key>
+<string>Why is my app authenticating using face id?</string>
+
+//add above line on info.plist
+3.andriod->app->src->main->andriodmanifest.xml
+
+//add this line
+
+ <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+ <uses-permission android:name="android.permission.BIOMETRIC" /> 
+
+
+3.create on biometric setup class
+
+
+class BioMetric {
+
+
+static bool isAuthenticated = false;
+
+ static  Future<void> authenticate(LocalAuthentication auth) async {
+    try {
+    bool canCheckBiometrics = await auth.canCheckBiometrics;
+    List<BiometricType> availableBiometrics = await auth.getAvailableBiometrics();
+
+    if (canCheckBiometrics && availableBiometrics.isNotEmpty) {
+      
+     isAuthenticated = await auth.authenticate(
+        localizedReason: 'Authenticate to access features',
+        options: const AuthenticationOptions(stickyAuth: true,
+          biometricOnly: false,),
+      );
+
+      
+    } else {
+      isAuthenticated = false;
+    }
+  } catch (e) {    
+    print("Error Occur: $e");
+    // return false;
+  }
+  }
+
+}
+
+4. show the dialog to confirm ask the biometric enable/not
+// ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_const_constructors, use_build_context_synchronously
+
+import 'package:flutter/material.dart';
+import '../Roating/route.dart' as route;
+
+class AskBiometric extends StatelessWidget {
+  final String uid;
+  const AskBiometric({
+    super.key,
+    required this.uid,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      surfaceTintColor: Colors.white,
+      title: Text('Welcome, $uid', style: TextStyle(fontSize: 24),),
+      titleTextStyle: Theme.of(context).textTheme.displaySmall,
+      content: const Text('Use Biometric or TOTP For Quick Access'),
+      contentTextStyle: Theme.of(context).textTheme.bodyLarge,
+      actionsAlignment: MainAxisAlignment.spaceEvenly,
+      actions: <Widget>[
+        MaterialButton(
+          elevation: 0,
+          minWidth: 100,
+          color: Color(0xFF8198A6).withOpacity(0.8),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          child: const Text(
+            'Cancel',
+            style: TextStyle(color: Colors.white),
+          ),
+          onPressed: () {
+            Navigator.of(context).pop(false); 
+          },
+        ),
+        MaterialButton(
+          elevation: 0,
+          minWidth: 100,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          color: Color.fromRGBO(9, 101, 218, 1),
+          child: const Text(
+            'Proceed',
+            style: TextStyle(color: Colors.white),
+          ),
+          onPressed: () async {
+             await Navigator.of(context).pushReplacementNamed( route.novoPage, arguments: 1);
+             
+            // await Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (context) => const SecurityScreen(),
+            //     ));
+            
+          },
+        ),
+      ],
+    );
+  }
+}
+
+
+
+5.novopage -> initstate call this function
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+late final LocalAuthentication auth;
+bool supportstate = false;
+  
+   WidgetsBinding.instance.addPostFrameCallback((_) {
+        
+      getIsBioMetric();  
+     
+    });
+
+    auth = LocalAuthentication();
+    auth.isDeviceSupported().then((bool isSupported) {
+      setState(() {
+        supportstate = isSupported;
+      });
+    });
+    
+
+  getIsBioMetric() async {
+    var pref = await SharedPreferences.getInstance();
+    bool? isBio = pref.getBool("isBiometricEnable");
+    if (isBio == false) {
+      showDialog(
+        context: context,
+        builder: (context) => AskBiometric(
+          uid: clientId,
+        ),
+      ).then((val) {
+        if (val != false) {
+          Navigator.of(context).pop();
+          _scaffoldKey.currentState?.openDrawer();
+        }
+      });
+    }
+  }
+  
+ 6.create the biometric toggle button
+ 		ListTile(
+                      dense: true,
+                      leading: Switch(
+                        activeColor: Color.fromRGBO(9, 101, 218, 1),
+                        trackOutlineWidth: const WidgetStatePropertyAll(1),
+                        value: isSwtich,
+                        onChanged: bioMetricSwitch,
+                      ),
+                      title: Text(
+                        "BioMetric",
+                        style: TextStyle(
+                          fontFamily: 'Kiro',
+                          fontSize: titleFontSize,
+                          fontWeight: FontWeight.bold,
+                          color: themeBasedColor,
+                        ),
+                      ),
+                 
+                    ),
+                    
+                    
+                    
+                    
+7. Biometric Toggle
+  void bioMetricSwitch(bool value) async {
+    if (value) {
+      BioMetric.authenticate(auth);
+      var pref = await SharedPreferences.getInstance();
+
+      pref.setBool("isBiometricEnable", BioMetric.isAuthenticated);
+    }
+     
+
+    setState(() {
+      isSwtich = value;
+    });
+   
+  }
+  
+  
+8. android->app->src->main
+
+import io.flutter.embedding.android.FlutterFragmentActivity
+
+class MainActivity: FlutterFragmentActivity() {
+}
+  
+
+
